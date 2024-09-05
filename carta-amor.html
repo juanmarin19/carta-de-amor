@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Amor Interactiva</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1a1a1a;
+            font-family: 'Arial', sans-serif;
+        }
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background-color: #ffc0cb;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+        .heart-seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+        }
+        .heart-seal::before,
+        .heart-seal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 30px;
+            height: 50px;
+            border-radius: 30px 30px 0 0;
+            background: #ff4d4d;
+        }
+        .heart-seal::before {
+            left: 30px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        .heart-seal::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        .letter {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background-color: white;
+            transform: scale(0);
+            transition: transform 0.5s;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            border-radius: 5px;
+        }
+        .letter.open {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope" onclick="openLetter()">
+        <div class="heart-seal"></div>
+        <div class="letter" id="letter">
+            <!-- Aquí puedes agregar tu mensaje de amor -->
+            <h1>Mi niña...</h1>
+            <p>Feliz cumpleamos mi princesa, ti amo tanto mi gordita, ya 19 añitos🥺, estoy tan feliz y tan orgulloso de vos mi niña, se que ahora mismo las cosas no estan muy bien pero yo se que vamos a superar todo. Bueno solo te queria decir que te amo 💕, te voy a amar y vas a ser mi niña todo el tiempo, estas en mis pensamientos 24/7, en fin feliz cumpleamos mi princesa y espero que seas feliz siempre. Ti amooooooo😍, con amor tu niño😘</p>
+        </div>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.getElementById('letter').classList.toggle('open');
+        }
+    </script>
+</body>
